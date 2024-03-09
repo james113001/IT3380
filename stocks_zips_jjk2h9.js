@@ -1,0 +1,18 @@
+1. db.zips.find({"state":"MO"}, {"_id":1, "city":1});
+2. db.zips.find({$or:[{"state":"MO"}, {"state":"FL"}, {"state":"IA"}, {"state":"KS"}]}, {"_id":1, "city":1});
+3. db.zips.find({$and:[{"state":"OH"}, {"pop":{$lt:2000}}]}, {"_id":1, "city":1, "pop":1});
+4. db.zips.find({"pop":{$gt:2000}}, {"_id":1, "city":1, "pop":1});
+5. db.zips.find({$and:[{"state":"MO"}, {"city":"COLUMBIA"}]}, {"_id":1});
+6. db.zips.find({"state":"MO"}, {"_id":1, "pop":1});
+7. db.zips.find({"city":"SPRINGFIELD"}, {"state":1});
+8. db.zips.count({"city":"SPRINGFIELD"});
+9. db.zips.find({"city":"EMERALD"}, {"_id":1, "pop":1, "state":1});
+10. db.zips.find({"pop":10}, {"_id":1, "city":1, "state":1});
+11. db.stocks.find();
+12. db.stocks.find({"Sector": "Information Technology"}, {"Name":1, "Symbol":1});
+13. db.stocks.find({$and:[{"Sector": "Financials"}, {"Price":{$gt:74}}]}, {"Symbol":1, "Name":1, "Price":1});
+14. db.stocks.find({"EBITDA":{$gte:2500000000}}, {"Name":1, "Sector":1, "EBITDA":1});
+15. db.stocks.find({"52 Week High":{$gte:150}}, {"Name":1, "Symbol":1, "Sector":1});
+16. db.stocks.find({$and:[{"Sector":"Real Estate"}, {"Price":{$gte:150}}]}, {"Symbol":1, "Name":1, "Price":1});
+17. db.stocks.find({$or:[{"Sector":"Utilities"}, {"Sector":"Industrials"}]}, {"Name":1, "Symbol":1, "Dividend Yield":1});
+18. db.stocks.find({$or:[{"Dividend Yield":{$gt:3}}, {"Earnings/Share":{$lt:1}}]}, {"Name":1, "Symbol":1, "Market Cap":1});

@@ -1,0 +1,12 @@
+1. SELECT productName, COUNT(orderNumber) AS "Number of Orders" FROM products p, orderdetails o WHERE o.productCode=p.productCode GROUP BY productName ORDER BY COUNT(orderNumber) DESC;
+2. SELECT productName, SUM(quantityOrdered) AS "Quantity Ordered" FROM products p, orderdetails o WHERE o.productCode=p.productCode GROUP BY productName ORDER BY SUM(quantityOrdered) DESC; 
+3. SELECT productName, SUM(quantityOrdered*priceEach) AS "Total Value" FROM products p, orderdetails o WHERE o.productCode=p.productCode GROUP BY productName ORDER BY SUM(quantityOrdered*priceEach) DESC LIMIT 25;
+4. SELECT customerName, COUNT(o.orderNumber) AS "Orders Placed" FROM customers c, orderdetails d, orders o WHERE o.customerNumber=c.customerNumber GROUP BY customerName ORDER BY COUNT(o.orderNumber) DESC LIMIT 25;
+5. SELECT YEAR(paymentDate), SUM(amount) AS "Total Payments" FROM payments GROUP BY YEAR(paymentDate) ORDER BY YEAR(paymentDate) ASC;
+6. SELECT MONTH(paymentDate), SUM(amount) AS "Total Payments" FROM payments WHERE YEAR(paymentDate) = 2004 GROUP BY MONTH(paymentDate) ORDER BY MONTH(paymentDate) ASC;
+7. SELECT DAY(paymentDate), SUM(amount) AS "Total Payments" FROM payments WHERE MONTH(paymentDate) = 12 AND YEAR(paymentDate) = 2004 GROUP BY DAY(paymentDate) ORDER BY DAY(paymentDate) ASC;
+8. SELECT customerName, SUM(amount) AS "Total Payments" FROM customers c, payments p WHERE c.customerNumber = p.customerNumber GROUP BY customerName ORDER BY SUM(amount) DESC;
+9. SELECT state, COUNT(customerName) AS "Number of Customers in State" FROM customers GROUP BY state ORDER BY COUNT(customerName) DESC;
+10. SELECT reportsTo as "Employee Number", COUNT(reportsTo) AS "Number of Reports" FROM employees GROUP BY reportsTo ORDER BY COUNT(reportsTo) DESC;
+11. SELECT COUNT(productLine) as "Number of Lines" FROM products; 
+12. SELECT productName, quantityInStock, buyPrice, (quantityInStock * buyPrice) AS "Dollar Value" FROM products GROUP BY productName ORDER BY (quantityInStock * buyPrice) DESC;
